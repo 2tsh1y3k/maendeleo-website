@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez le Collège Maendeleo pour plus d'informations ou pour planifier une visite.">
+    
+    <title>Contact | Collège Maendeleo</title>
+    
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    
+    <style>
+        .page-header {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, rgba(224, 108, 117, 0.95), rgba(208, 76, 85, 0.9)),
+                        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1,
+        .page-header p {
+            color: white;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .contact-info-cards {
+            display: grid;
+            gap: 25px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            gap: 20px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .info-content p {
+            margin: 0;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        .info-content a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .info-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .form-group label .required {
+            color: var(--color-danger);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--color-border);
+            border-radius: var(--border-radius);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.1);
+        }
+
+        .form-control.error {
+            border-color: var(--color-danger);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: white;
+            padding: 50px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .map-section h3 {
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            background: var(--color-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 40px;
+            color: var(--color-text-light);
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        /* Hours Card */
+        .hours-card {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .hours-card h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .hours-list {
+            list-style: none;
+            text-align: left;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .hours-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-form,
+            .map-section {
+                padding: 30px 25px;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">CM</div>
+                    <div class="logo-text">
+                        <h4>Collège Maendeleo</h4>
+                        <span>Le Paradis du Savoir</span>
+                    </div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="sections.html">Sections</a></li>
+                    <li><a href="options.html">Options</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="#inscription" class="btn btn-secondary btn-sm">Inscription</a>
+                    </li>
+                </ul>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Contactez-Nous</h1>
+            <p>Nous sommes là pour répondre à toutes vos questions</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Info -->
+                <div>
+                    <div class="contact-info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Notre Adresse</h3>
+                                <p>Quartier Banday, Durba<br>
+                                Référence: Rond-point Banday<br>
+                                Nord-Kivu, RDC</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Téléphone</h3>
+                                <p><a href="tel:+243825775108">+243 825 775 108</a><br>
+                                Disponible du lundi au vendredi<br>
+                                7h30 - 17h30</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Email</h3>
+                                <p><a href="mailto:contact@maendeleo.cd">contact@maendeleo.cd</a><br>
+                                <a href="mailto:admission@maendeleo.cd">admission@maendeleo.cd</a><br>
+                                Réponse sous 24h</p>
+                            </div>
+                        </div>
+
+                        <div class="hours-card">
+                            <h3>Heures d'Ouverture</h3>
+                            <ul class="hours-list">
+                                <li><span>Lundi - Vendredi</span><span>7h30 - 17h30</span></li>
+                                <li><span>Samedi</span><span>8h00 - 13h00</span></li>
+                                <li><span>Dimanche</span><span>Fermé</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <form class="contact-form" id="contactForm" onsubmit="return handleContactSubmit(event)">
+                        <h3>Envoyez-nous un Message</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nom">Nom Complet <span class="required">*</span></label>
+                                <input type="text" id="nom" name="nom" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telephone">Téléphone <span class="required">*</span></label>
+                                <input type="tel" id="telephone" name="telephone" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sujet">Sujet <span class="required">*</span></label>
+                                <select id="sujet" name="sujet" class="form-control" required>
+                                    <option value="">-- Sélectionnez --</option>
+                                    <option value="inscription">Inscription</option>
+                                    <option value="information">Demande d'information</option>
+                                    <option value="visite">Planifier une visite</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="section">Section Concernée</label>
+                                <select id="section" name="section" class="form-control">
+                                    <option value="">-- Sélectionnez --</option>
+                                    <option value="maternelle">Maternelle</option>
+                                    <option value="primaire">Primaire</option>
+                                    <option value="secondaire">Secondaire</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" class="form-control" required placeholder="Décrivez votre demande en détail..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-paper-plane"></i> Envoyer le Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <h3>Notre Emplacement</h3>
+                <p class="mb-3">Venez nous rendre visite à notre campus situé au Quartier Banday, Durba</p>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Quartier Banday, Durba<br>Référence: Rond-point Banday<br>Nord-Kivu, RDC</p>
+                        <p style="margin-top: 20px; font-size: 0.9rem; color: var(--color-text-light);">
+                            Pour obtenir des directions détaillées, veuillez nous contacter par téléphone.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-alt" id="inscription">
+        <div class="container text-center">
+            <div style="max-width: 700px; margin: 0 auto;">
+                <h2 class="mb-3">Prêt à Commencer l'Inscription?</h2>
+                <p class="mb-4" style="font-size: 1.1rem; color: var(--color-text-light);">
+                    Les inscriptions pour l'année académique 2025-2026 sont ouvertes. Rejoignez notre communauté d'excellence dès aujourd'hui!
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#contactForm" class="btn btn-primary btn-lg">
+                        <i class="fas fa-edit"></i> Formulaire d'Inscription
+                    </a>
+                    <a href="tel:+243825775108" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-phone"></i> Appeler Maintenant
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Collège Maendeleo</h4>
+                    <p>Le paradis du savoir, formant les leaders de demain avec excellence et intégrité depuis 2023.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="sections.html">Sections</a></li>
+                        <li><a href="options.html">Options</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Options Populaires</h4>
+                    <ul>
+                        <li><a href="options.html#scientifique">Scientifique</a></li>
+                        <li><a href="options.html#informatique">Informatique</a></li>
+                        <li><a href="options.html#hotellerie">Hôtellerie</a></li>
+                        <li><a href="options.html#agro">Agro-Vétérinaire</a></li>
+                        <li><a href="options.html#construction">Construction</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Quartier Banday, Durba<br>Ref: Rond-point Banday</p>
+                        <p><i class="fas fa-phone"></i> +243 825 775 108</p>
+                        <p><i class="fas fa-envelope"></i> contact@maendeleo.cd</p>
+                        <p><i class="fas fa-clock"></i> Lun-Ven: 7h30-17h30</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Collège Maendeleo. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

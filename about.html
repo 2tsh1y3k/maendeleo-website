@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'histoire, la vision et l'équipe du Collège Maendeleo - Le Paradis du Savoir.">
+    <title>À Propos | Collège Maendeleo</title>
+    
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    
+    <style>
+        :root {
+            --color-primary: #1a5fb4;
+            --color-secondary: #e06c75;
+            --color-accent: #61afef;
+            --color-dark: #2c3e50;
+            --color-light: #f5f7fa;
+            --color-white: #ffffff;
+            --color-gold: #d4af37;
+            --color-text: #333333;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--color-light);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--color-dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--color-secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+/* Clip-path section dividers */
+        .section-divider {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            z-index: 1;
+        }
+
+        .divider-top {
+            top: -1px;
+            background: var(--color-white);
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+        }
+
+        .divider-bottom {
+            bottom: -1px;
+            background: var(--color-white);
+            clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Hero Section with Clip-path */
+        .about-hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(26, 46, 77, 0.85), rgba(26, 46, 77, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--color-white);
+            text-align: center;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 100px;
+        }
+
+        .about-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--color-light);
+            clip-path: polygon(0 85%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .about-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .about-hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1.2s ease;
+        }
+/* Leadership Section with Clip-path Images */
+        .leadership-section {
+            background-color: var(--color-white);
+            padding: 150px 0 100px;
+            position: relative;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 992px) {
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .leader-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .leader-card.founder {
+            border-top: 5px solid var(--color-gold);
+        }
+
+        .leader-image {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .leader-card:hover .leader-image img {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .leader-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .position {
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .bio {
+            margin-bottom: 20px;
+            color: #555;
+            flex: 1;
+        }
+
+        .leader-quote {
+            border-left: 3px solid var(--color-gold);
+            padding-left: 15px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Stats Section with Clip-path Background */
+        .stats-section {
+            background: linear-gradient(135deg, var(--color-dark), #1e3a8a);
+            color: white;
+            padding: 150px 0 100px;
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            margin: 100px 0;
+        }
+
+        .stats-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--color-gold);
+            transition: all 0.8s ease;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+/* Academic Journey with Clip-path Elements */
+        .academic-journey {
+            background: var(--color-white);
+            padding: 150px 0 100px;
+            position: relative;
+        }
+
+        .journey-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .journey-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .journey-steps {
+                flex-direction: column;
+                gap: 50px;
+            }
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 40px 30px;
+            position: relative;
+            background: var(--color-light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .step:hover {
+            transform: translateY(-15px);
+            background: var(--color-white);
+            box-shadow: var(--box-shadow);
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 40px;
+            height: 4px;
+            background: var(--color-accent);
+        }
+
+        @media (max-width: 768px) {
+            .step:not(:last-child)::after {
+                top: auto;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 4px;
+                height: 40px;
+            }
+        }
+
+        .step-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin: 0 auto 25px;
+            transition: var(--transition);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .step:hover .step-icon {
+            background: var(--color-secondary);
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .step h3 {
+            color: var(--color-dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .step-stats {
+            background: var(--color-accent);
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+            color: var(--color-white);
+            transition: var(--transition);
+        }
+
+        .step:hover .step-stats {
+            background: var(--color-secondary);
+        }
+/* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 1s ease;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 95%);
+            }
+            
+            .stats-section {
+                clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .stat-value {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">CM</div>
+                    <div class="logo-text">
+                        <h4>Collège Maendeleo</h4>
+                        <span>Le Paradis du Savoir</span>
+                    </div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html" class="active">À Propos</a></li>
+                    <li><a href="sections.html">Sections</a></li>
+                    <li><a href="options.html">Options</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="contact.html" class="btn btn-secondary btn-sm">Inscription</a>
+                    </li>
+                </ul>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>Notre Histoire, Notre Excellence</h1>
+            <p>Depuis 2023, forger l'excellence scolaire et ce qui Caracterise le College Maendeleo à Durba</p>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section leadership-section">
+        <div class="section-divider divider-top"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Équipe de Direction</h2>
+                <p>Rencontrez les visionnaires qui guident notre institution vers l'excellence éducative</p>
+            </div>
+            
+            <div class="leadership-grid">
+                <div class="leader-card founder">
+                    <div class="leader-image">
+                        <img src="https://images.unsplash.com/photo-1580894908361-967195033215?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fondateur">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Mr Smith Kombo</h3>
+                        <p class="position">Promoteur</p>
+                        <p class="bio">Avec un double Master en Criminologie avec plus de 20 ans d'expérience, Mr. Smith Kombo a fondé le Collège Maendeleo avec une vision de transformer l'éducation en RDC. 
+                            specialiste du comportement humain, il est tres louee pour son engagement en faveur de l'éducation.</p>
+                        <div class="leader-quote">
+                            "L'éducation est l'arme la plus puissante pour transformer une communauté"
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="images/gestionaire.jpg" alt="gestionnaire">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Teck Kulimushi</h3>
+                        <p class="position">Gestionnaire</p>
+                        <p class="bio">specialiste en gestion ecoliere; Sous sa direction, notre institution a vu une amélioration significatif des résultats aux examens nationaux.</p>
+                        <div class="leader-quote">
+                            "Chaque élève possède un potentiel unique qui ne demande qu'à être révélé"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <div class="section-divider divider-bottom"></div>
+    </section>
+
+    <!--Stats Section -->
+    <section class="stats-section">
+        <div class="container stats-container">
+            <div class="section-title">
+                <h2>Notre Impact en Chiffres</h2>
+                <p>Des statistiques qui témoignent de notre excellence et engagement</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card floating" style="animation-delay: 0.2s;">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Taux de Réussite EFOMES</div>
+                </div>
+                
+                <div class="stat-card floating" style="animation-delay: 0.4s;">
+                    <div class="stat-value">95%</div>
+                    <div class="stat-label">Taux de Diplômés</div>
+                </div>
+                
+                <div class="stat-card floating" style="animation-delay: 0.6s;">
+                    <div class="stat-value">52%</div>
+                    <div class="stat-label">Élèves Féminines</div>
+                </div>
+                
+                <div class="stat-card floating" style="animation-delay: 0.8s;">
+                    <div class="stat-value">15%</div>
+                    <div class="stat-label">Croissance Annuelle</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Academic Journey-->
+    <section class="section academic-journey">
+        <div class="section-divider divider-top"></div>
+        <div class="container journey-container">
+            <div class="section-title">
+                <h2>Notre Parcours Académique</h2>
+                <p>Un voyage éducatif complet de la maternelle à l'université</p>
+            </div>
+            
+            <div class="journey-steps">
+                <div class="step">
+                    <div class="step-icon">M</div>
+                    <h3>Maternelle</h3>
+                    <p>Développement holistique par le jeu et éveil précoce</p>
+                    <div class="step-stats">
+                        <span>98%</span> Passage au Primaire
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">P</div>
+                    <h3>Primaire</h3>
+                    <p>Fondations académiques solides et développement des compétences sociales</p>
+                    <div class="step-stats">
+                        <span>95%</span> Réussite au TENAFEP
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">S</div>
+                    <h3>Secondaire</h3>
+                    <p>Spécialisation et préparation universitaire avec 12 options professionnelles</p>
+                    <div class="step-stats">
+                        <span>94%</span> Passage à l'université
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider divider-bottom"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Collège Maendeleo</h4>
+                    <p>Le paradis du savoir, formant les leaders de demain avec excellence et intégrité depuis 2023.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="sections.html">Sections</a></li>
+                        <li><a href="options.html">Options</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Options Populaires</h4>
+                    <ul>
+                        <li><a href="options.html#scientifique">Scientifique</a></li>
+                        <li><a href="options.html#informatique">Informatique</a></li>
+                        <li><a href="options.html#hotellerie">Hôtellerie</a></li>
+                        <li><a href="options.html#agro">Agro-Vétérinaire</a></li>
+                        <li><a href="options.html#construction">Construction</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Quartier Banday, Durba<br>Ref: Rond-point Banday</p>
+                        <p><i class="fas fa-phone"></i> +243 825 775 108</p>
+                        <p><i class="fas fa-envelope"></i> contact@maendeleo.cd</p>
+                        <p><i class="fas fa-clock"></i> Lun-Ven: 7h30-17h30</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Collège Maendeleo. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+

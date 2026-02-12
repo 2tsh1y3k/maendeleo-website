@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez nos 12+ options académiques: Scientifique, Informatique, Hôtellerie, Agro-Vétérinaire et plus.">
+    
+    <title>Nos Options | Collège Maendeleo</title>
+    
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    
+    <style>
+        .page-header {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, rgba(247, 183, 49, 0.95), rgba(212, 175, 55, 0.9)),
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1,
+        .page-header p {
+            color: white;
+        }
+
+        .options-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            border: 2px solid var(--color-primary);
+            background: white;
+            color: var(--color-primary);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .option-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .option-header {
+            padding: 35px 30px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .option-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .option-header p {
+            opacity: 0.95;
+            margin: 0;
+            color: white;
+        }
+
+        .option-body {
+            padding: 30px;
+        }
+
+        .option-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .option-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--color-text-light);
+        }
+
+        .option-features li:last-child {
+            border-bottom: none;
+        }
+
+        .option-features i {
+            color: var(--color-success);
+            font-size: 1.1rem;
+        }
+
+        .option-footer {
+            padding: 20px 30px;
+            background: var(--color-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .option-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-scientifique { background: #e3f2fd; color: #1976d2; }
+        .badge-technique { background: #fff3e0; color: #f57c00; }
+        .badge-professionnel { background: #f3e5f5; color: #7b1fa2; }
+
+        @media (max-width: 768px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">CM</div>
+                    <div class="logo-text">
+                        <h4>Collège Maendeleo</h4>
+                        <span>Le Paradis du Savoir</span>
+                    </div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="sections.html">Sections</a></li>
+                    <li><a href="options.html" class="active">Options</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="contact.html" class="btn btn-secondary btn-sm">Inscription</a>
+                    </li>
+                </ul>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Nos Options Académiques</h1>
+            <p>Plus de 12 options professionnelles pour façonner votre avenir</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="options-filter">
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="scientifique">Scientifiques</button>
+                <button class="filter-btn" data-filter="technique">Techniques</button>
+                <button class="filter-btn" data-filter="professionnel">Professionnelles</button>
+            </div>
+
+            <div class="options-grid">
+                <!-- Scientifique -->
+                <div class="option-card" data-category="scientifique">
+                    <div class="option-header" style="background: linear-gradient(135deg, #1976d2, #64b5f6);">
+                        <i class="fas fa-flask option-icon"></i>
+                        <h3>Sciences</h3>
+                        <p>Formation scientifique rigoureuse</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Mathématiques avancées</li>
+                            <li><i class="fas fa-check"></i> Physique et Chimie</li>
+                            <li><i class="fas fa-check"></i> Biologie</li>
+                            <li><i class="fas fa-check"></i> Préparation universitaire</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-scientifique">Scientifique</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Informatique -->
+                <div class="option-card" data-category="scientifique">
+                    <div class="option-header" style="background: linear-gradient(135deg, #7b1fa2, #ba68c8);">
+                        <i class="fas fa-laptop-code option-icon"></i>
+                        <h3>Informatique</h3>
+                        <p>Technologies et programmation</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Programmation</li>
+                            <li><i class="fas fa-check"></i> Réseaux et systèmes</li>
+                            <li><i class="fas fa-check"></i> Développement web</li>
+                            <li><i class="fas fa-check"></i> Cybersécurité</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-scientifique">Scientifique</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Agro-Vétérinaire -->
+                <div class="option-card" data-category="scientifique">
+                    <div class="option-header" style="background: linear-gradient(135deg, #388e3c, #66bb6a);">
+                        <i class="fas fa-seedling option-icon"></i>
+                        <h3>Agro-Vétérinaire</h3>
+                        <p>Agriculture et élevage moderne</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Agronomie</li>
+                            <li><i class="fas fa-check"></i> Élevage et santé animale</li>
+                            <li><i class="fas fa-check"></i> Pratiques durables</li>
+                            <li><i class="fas fa-check"></i> Gestion agricole</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-scientifique">Scientifique</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Hôtellerie -->
+                <div class="option-card" data-category="professionnel">
+                    <div class="option-header" style="background: linear-gradient(135deg, #d32f2f, #ef5350);">
+                        <i class="fas fa-utensils option-icon"></i>
+                        <h3>Hôtellerie-Restauration</h3>
+                        <p>Arts culinaires et hospitalité</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Cuisine professionnelle</li>
+                            <li><i class="fas fa-check"></i> Service hôtelier</li>
+                            <li><i class="fas fa-check"></i> Gestion touristique</li>
+                            <li><i class="fas fa-check"></i> Pâtisserie</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-professionnel">Professionnel</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Construction -->
+                <div class="option-card" data-category="technique">
+                    <div class="option-header" style="background: linear-gradient(135deg, #f57c00, #ff9800);">
+                        <i class="fas fa-hard-hat option-icon"></i>
+                        <h3>Construction</h3>
+                        <p>Génie civil et architecture</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Dessin technique</li>
+                            <li><i class="fas fa-check"></i> Maçonnerie</li>
+                            <li><i class="fas fa-check"></i> Topographie</li>
+                            <li><i class="fas fa-check"></i> Métré et devis</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-technique">Technique</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Électricité -->
+                <div class="option-card" data-category="technique">
+                    <div class="option-header" style="background: linear-gradient(135deg, #0288d1, #03a9f4);">
+                        <i class="fas fa-bolt option-icon"></i>
+                        <h3>Électricité</h3>
+                        <p>Installations électriques</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Électricité domestique</li>
+                            <li><i class="fas fa-check"></i> Électronique</li>
+                            <li><i class="fas fa-check"></i> Automatismes</li>
+                            <li><i class="fas fa-check"></i> Énergies renouvelables</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-technique">Technique</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Commerce -->
+                <div class="option-card" data-category="professionnel">
+                    <div class="option-header" style="background: linear-gradient(135deg, #c2185b, #e91e63);">
+                        <i class="fas fa-chart-line option-icon"></i>
+                        <h3>Commerce & Gestion</h3>
+                        <p>Business et entrepreneuriat</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Comptabilité</li>
+                            <li><i class="fas fa-check"></i> Marketing</li>
+                            <li><i class="fas fa-check"></i> Gestion d'entreprise</li>
+                            <li><i class="fas fa-check"></i> Économie</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-professionnel">Professionnel</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Secrétariat -->
+                <div class="option-card" data-category="professionnel">
+                    <div class="option-header" style="background: linear-gradient(135deg, #5e35b1, #7e57c2);">
+                        <i class="fas fa-file-alt option-icon"></i>
+                        <h3>Secrétariat-Administration</h3>
+                        <p>Bureautique et gestion</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Bureautique avancée</li>
+                            <li><i class="fas fa-check"></i> Correspondance</li>
+                            <li><i class="fas fa-check"></i> Gestion administrative</li>
+                            <li><i class="fas fa-check"></i> Communication</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-professionnel">Professionnel</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Mécanique -->
+                <div class="option-card" data-category="technique">
+                    <div class="option-header" style="background: linear-gradient(135deg, #424242, #616161);">
+                        <i class="fas fa-cogs option-icon"></i>
+                        <h3>Mécanique Automobile</h3>
+                        <p>Réparation et entretien</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Moteurs et transmissions</li>
+                            <li><i class="fas fa-check"></i> Électricité auto</li>
+                            <li><i class="fas fa-check"></i> Diagnostic</li>
+                            <li><i class="fas fa-check"></i> Carrosserie</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-technique">Technique</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Pédagogie -->
+                <div class="option-card" data-category="professionnel">
+                    <div class="option-header" style="background: linear-gradient(135deg, #00897b, #26a69a);">
+                        <i class="fas fa-chalkboard-teacher option-icon"></i>
+                        <h3>Pédagogie</h3>
+                        <p>Formation des enseignants</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Méthodes d'enseignement</li>
+                            <li><i class="fas fa-check"></i> Psychologie enfant</li>
+                            <li><i class="fas fa-check"></i> Didactique</li>
+                            <li><i class="fas fa-check"></i> Stages pratiques</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-professionnel">Professionnel</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Coupe-Couture -->
+                <div class="option-card" data-category="professionnel">
+                    <div class="option-header" style="background: linear-gradient(135deg, #ad1457, #d81b60);">
+                        <i class="fas fa-cut option-icon"></i>
+                        <h3>Coupe-Couture</h3>
+                        <p>Mode et stylisme</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Techniques de coupe</li>
+                            <li><i class="fas fa-check"></i> Confection</li>
+                            <li><i class="fas fa-check"></i> Design de mode</li>
+                            <li><i class="fas fa-check"></i> Entrepreneuriat</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-professionnel">Professionnel</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+
+                <!-- Nutrition -->
+                <div class="option-card" data-category="scientifique">
+                    <div class="option-header" style="background: linear-gradient(135deg, #6a1b9a, #8e24aa);">
+                        <i class="fas fa-apple-alt option-icon"></i>
+                        <h3>Nutrition</h3>
+                        <p>Diététique et santé</p>
+                    </div>
+                    <div class="option-body">
+                        <ul class="option-features">
+                            <li><i class="fas fa-check"></i> Sciences alimentaires</li>
+                            <li><i class="fas fa-check"></i> Diététique</li>
+                            <li><i class="fas fa-check"></i> Hygiène alimentaire</li>
+                            <li><i class="fas fa-check"></i> Conseil nutritionnel</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">S'inscrire</a>
+                    </div>
+                    <div class="option-footer">
+                        <span class="option-badge badge-scientifique">Scientifique</span>
+                        <span style="color: var(--color-text-light); font-size: 0.9rem;">6 ans</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Collège Maendeleo</h4>
+                    <p>Le paradis du savoir, formant les leaders de demain avec excellence et intégrité depuis 2023.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="sections.html">Sections</a></li>
+                        <li><a href="options.html">Options</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Options Populaires</h4>
+                    <ul>
+                        <li><a href="options.html#scientifique">Scientifique</a></li>
+                        <li><a href="options.html#informatique">Informatique</a></li>
+                        <li><a href="options.html#hotellerie">Hôtellerie</a></li>
+                        <li><a href="options.html#agro">Agro-Vétérinaire</a></li>
+                        <li><a href="options.html#construction">Construction</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Quartier Banday, Durba<br>Ref: Rond-point Banday</p>
+                        <p><i class="fas fa-phone"></i> +243 825 775 108</p>
+                        <p><i class="fas fa-envelope"></i> contact@maendeleo.cd</p>
+                        <p><i class="fas fa-clock"></i> Lun-Ven: 7h30-17h30</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Collège Maendeleo. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Options filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const optionCards = document.querySelectorAll('.option-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                optionCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 10);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

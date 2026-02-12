@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez nos trois sections: Maternelle, Primaire et Secondaire au Collège Maendeleo.">
+    
+    <title>Nos Sections | Collège Maendeleo</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    
+    <style>
+        /* Page Header */
+        .page-header {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, rgba(26, 95, 180, 0.95), rgba(44, 62, 80, 0.9)),
+                        url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        /* Section Detail Card */
+        .section-detail {
+            margin-bottom: 100px;
+            scroll-margin-top: 100px;
+        }
+
+        .section-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .section-content-grid.reverse {
+            direction: rtl;
+        }
+
+        .section-content-grid.reverse > * {
+            direction: ltr;
+        }
+
+        .section-image-wrapper {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-image-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .section-detail:hover .section-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .section-badge-large {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-info h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        #maternelle .section-info h2::after {
+            background: var(--color-maternelle);
+        }
+
+        #primaire .section-info h2::after {
+            background: var(--color-primaire);
+        }
+
+        #secondaire .section-info h2::after {
+            background: var(--color-secondaire);
+        }
+
+        .section-info p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .section-highlights {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: var(--color-light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .highlight-item:hover {
+            background: white;
+            box-shadow: var(--box-shadow);
+            transform: translateX(10px);
+        }
+
+        .highlight-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        #maternelle .highlight-icon {
+            background: linear-gradient(135deg, var(--color-maternelle), #ff8fb5);
+        }
+
+        #primaire .highlight-icon {
+            background: linear-gradient(135deg, var(--color-primaire), #6ee7df);
+        }
+
+        #secondaire .highlight-icon {
+            background: linear-gradient(135deg, var(--color-secondaire), #ffd96a);
+        }
+
+        .highlight-content h4 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .highlight-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Grid */
+        .stats-grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid;
+        }
+
+        #maternelle .program-card {
+            border-color: var(--color-maternelle);
+        }
+
+        #primaire .program-card {
+            border-color: var(--color-primaire);
+        }
+
+        #secondaire .program-card {
+            border-color: var(--color-secondaire);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .program-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .program-card ul {
+            list-style: none;
+        }
+
+        .program-card li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .program-card li i {
+            color: var(--color-success);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+            color: white;
+            padding: 60px 40px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .cta-banner h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .section-content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-content-grid.reverse {
+                direction: ltr;
+            }
+
+            .section-image-wrapper img {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 0 80px;
+            }
+
+            .section-detail {
+                margin-bottom: 60px;
+            }
+
+            .section-image-wrapper img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">CM</div>
+                    <div class="logo-text">
+                        <h4>Collège Maendeleo</h4>
+                        <span>Le Paradis du Savoir</span>
+                    </div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="sections.html" class="active">Sections</a></li>
+                    <li><a href="options.html">Options</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="contact.html" class="btn btn-secondary btn-sm">Inscription</a>
+                    </li>
+                </ul>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Nos Sections</h1>
+            <p>Un parcours éducatif complet de la maternelle au secondaire</p>
+        </div>
+    </header>
+
+    <!-- Maternelle Section -->
+    <section class="section" id="maternelle">
+        <div class="container">
+            <div class="section-detail">
+                <div class="section-content-grid">
+                    <div class="section-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1200&q=80" alt="Section Maternelle">
+                        <span class="section-badge-large badge-maternelle">Maternelle</span>
+                    </div>
+                    
+                    <div class="section-info">
+                        <h2>Section Maternelle</h2>
+                        <p>Notre section maternelle offre un environnement d'apprentissage stimulant et sécurisé où les tout-petits découvrent le monde à travers le jeu, la créativité et l'exploration. Nous mettons l'accent sur le développement holistique de chaque enfant.</p>
+                        
+                        <div class="section-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Apprentissage par le Jeu</h4>
+                                    <p>Activités ludiques et créatives adaptées au développement de l'enfant</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Développement Psychomoteur</h4>
+                                    <p>Activités physiques et motrices pour une croissance équilibrée</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Socialisation</h4>
+                                    <p>Apprentissage des valeurs sociales et du vivre-ensemble</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="btn btn-primary">Inscrire Mon Enfant</a>
+                    </div>
+                </div>
+
+                <div class="stats-grid-section">
+                    <div class="stat-box">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Passage au Primaire</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Élèves par Classe</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">3-5</div>
+                        <div class="stat-label">Années</div>
+                    </div>
+                </div>
+
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <h4><i class="fas fa-star"></i> Petite Section</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Éveil sensoriel</li>
+                            <li><i class="fas fa-check"></i> Jeux éducatifs</li>
+                            <li><i class="fas fa-check"></i> Développement moteur</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h4><i class="fas fa-star"></i> Moyenne Section</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Pré-lecture et pré-écriture</li>
+                            <li><i class="fas fa-check"></i> Activités artistiques</li>
+                            <li><i class="fas fa-check"></i> Initiation aux nombres</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h4><i class="fas fa-star"></i> Grande Section</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Préparation au primaire</li>
+                            <li><i class="fas fa-check"></i> Lecture et écriture</li>
+                            <li><i class="fas fa-check"></i> Mathématiques de base</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Primaire Section -->
+    <section class="section section-alt" id="primaire">
+        <div class="container">
+            <div class="section-detail">
+                <div class="section-content-grid reverse">
+                    <div class="section-info">
+                        <h2>Section Primaire</h2>
+                        <p>La section primaire construit les fondations académiques solides nécessaires à la réussite future. Nos programmes enrichis en français, mathématiques et sciences préparent les élèves à exceller aux examens nationaux.</p>
+                        
+                        <div class="section-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Programme National Renforcé</h4>
+                                    <p>Curriculum officiel enrichi par des méthodes pédagogiques modernes</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Initiation Informatique</h4>
+                                    <p>Formation aux outils numériques dès les premières années</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Apprentissage des Langues</h4>
+                                    <p>Français, anglais et langues nationales</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="btn btn-primary">Inscrire Mon Enfant</a>
+                    </div>
+                    
+                    <div class="section-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80" alt="Section Primaire">
+                        <span class="section-badge-large badge-primaire">Primaire</span>
+                    </div>
+                </div>
+
+                <div class="stats-grid-section">
+                    <div class="stat-box">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Réussite TENAFEP</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">25</div>
+                        <div class="stat-label">Élèves par Classe</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Années (1ère-6ème)</div>
+                    </div>
+                </div>
+
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <h4><i class="fas fa-graduation-cap"></i> Cycle 1 (1ère-2ème)</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Lecture et écriture</li>
+                            <li><i class="fas fa-check"></i> Mathématiques de base</li>
+                            <li><i class="fas fa-check"></i> Éveil scientifique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h4><i class="fas fa-graduation-cap"></i> Cycle 2 (3ème-4ème)</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Approfondissement académique</li>
+                            <li><i class="fas fa-check"></i> Sciences et histoire</li>
+                            <li><i class="fas fa-check"></i> Expression artistique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h4><i class="fas fa-graduation-cap"></i> Cycle 3 (5ème-6ème)</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Préparation TENAFEP</li>
+                            <li><i class="fas fa-check"></i> Méthodologie avancée</li>
+                            <li><i class="fas fa-check"></i> Orientation scolaire</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secondaire Section -->
+    <section class="section" id="secondaire">
+        <div class="container">
+            <div class="section-detail">
+                <div class="section-content-grid">
+                    <div class="section-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80" alt="Section Secondaire">
+                        <span class="section-badge-large badge-secondaire">Secondaire</span>
+                    </div>
+                    
+                    <div class="section-info">
+                        <h2>Section Secondaire</h2>
+                        <p>Notre section secondaire offre plus de 12 options professionnelles de qualité, permettant aux élèves de se spécialiser et de se préparer à l'université ou au monde professionnel avec un taux de réussite de 94%.</p>
+                        
+                        <div class="section-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>12+ Options Disponibles</h4>
+                                    <p>Large choix d'options scientifiques, techniques et professionnelles</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Préparation Universitaire</h4>
+                                    <p>Formation rigoureuse pour réussir aux examens d'État et à l'université</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Formation Professionnelle</h4>
+                                    <p>Stages pratiques et formation aux métiers d'avenir</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="options.html" class="btn btn-primary">Découvrir Nos Options</a>
+                    </div>
+                </div>
+
+                <div class="stats-grid-section">
+                    <div class="stat-box">
+                        <div class="stat-number">94%</div>
+                        <div class="stat-label">Passage à l'Université</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Options Disponibles</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Années (1ère-6ème)</div>
+                    </div>
+                </div>
+
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <h4><i class="fas fa-flask"></i> Filière Scientifique</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Sciences & Math</li>
+                            <li><i class="fas fa-check"></i> Informatique</li>
+                            <li><i class="fas fa-check"></i> Agro-Vétérinaire</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h4><i class="fas fa-tools"></i> Filière Technique</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Construction</li>
+                            <li><i class="fas fa-check"></i> Électricité</li>
+                            <li><i class="fas fa-check"></i> Mécanique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h4><i class="fas fa-handshake"></i> Filière Professionnelle</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Hôtellerie</li>
+                            <li><i class="fas fa-check"></i> Commerce</li>
+                            <li><i class="fas fa-check"></i> Secrétariat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-banner">
+                <h3>Prêt à Choisir Votre Section?</h3>
+                <p>Contactez-nous pour plus d'informations ou pour planifier une visite</p>
+                <a href="contact.html" class="btn btn-white">Nous Contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Collège Maendeleo</h4>
+                    <p>Le paradis du savoir, formant les leaders de demain avec excellence et intégrité depuis 2023.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="sections.html">Sections</a></li>
+                        <li><a href="options.html">Options</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Options Populaires</h4>
+                    <ul>
+                        <li><a href="options.html#scientifique">Scientifique</a></li>
+                        <li><a href="options.html#informatique">Informatique</a></li>
+                        <li><a href="options.html#hotellerie">Hôtellerie</a></li>
+                        <li><a href="options.html#agro">Agro-Vétérinaire</a></li>
+                        <li><a href="options.html#construction">Construction</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Quartier Banday, Durba<br>Ref: Rond-point Banday</p>
+                        <p><i class="fas fa-phone"></i> +243 825 775 108</p>
+                        <p><i class="fas fa-envelope"></i> contact@maendeleo.cd</p>
+                        <p><i class="fas fa-clock"></i> Lun-Ven: 7h30-17h30</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Collège Maendeleo. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
