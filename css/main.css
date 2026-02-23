@@ -1,0 +1,36 @@
+/* =========================================
+   COLLÈGE MAENDELEO - MAIN STYLESHEET
+   Master Import File
+   
+   Import Order:
+   1. Variables (design tokens)
+   2. Base (reset & foundation)
+   3. Layout (grid & containers)
+   4. Typography (text system)
+   5. Components (modular UI elements)
+   6. Utilities (helper classes)
+   ========================================= */
+
+/* Step 1: Design System */
+@import url('variables.css');
+
+/* Step 2: Foundation */
+@import url('base.css');
+
+/* Step 3: Layout System */
+@import url('layout.css');
+
+/* Step 4: Typography */
+@import url('typography.css');
+
+/* Step 5: Components */
+@import url('components/navbar.css');
+@import url('components/hero.css');
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/section.css');
+@import url('components/footer.css');
+@import url('components/forms.css');
+
+/* Step 6: Utilities (last for highest specificity) */
+@import url('utilities.css');

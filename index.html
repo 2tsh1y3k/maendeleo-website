@@ -7,862 +7,439 @@
     <meta name="keywords" content="école, collège, maternelle, primaire, secondaire, Durba, éducation, RDC">
     <meta name="author" content="Collège Maendeleo">
     
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://collegemaendeleo.cd/">
+    <meta property="og:title" content="Collège Maendeleo | Le Paradis du Savoir">
+    <meta property="og:description" content="Excellence éducative de la maternelle au secondaire à Durba">
+    <meta property="og:image" content="images/og-image.jpg">
+    
     <title>Collège Maendeleo | Le Paradis du Savoir</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/1.jpg" type="image/png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header-footer.css">
+    <!-- Swiper CSS for Sliders -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     
-    <style>
-        /* Hero Section */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, rgba(26, 95, 180, 0.95), rgba(44, 62, 80, 0.9)),
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            color: white;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(97, 175, 239, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 100px 20px 60px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero .tagline {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 15px;
-            opacity: 0.95;
-            animation: fadeInUp 1.2s ease;
-        }
-
-        .typing-text {
-            display: inline-block;
-            border-right: 3px solid var(--color-secondary);
-            padding-right: 5px;
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { border-color: transparent; }
-            50% { border-color: var(--color-secondary); }
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            margin-bottom: 40px;
-            opacity: 0.9;
-            line-height: 1.8;
-            animation: fadeInUp 1.4s ease;
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1.6s ease;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            margin-top: 80px;
-            animation: fadeInUp 1.8s ease;
-        }
-
-        .hero-stat {
-            text-align: center;
-        }
-
-        .hero-stat h3 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--color-secondary);
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-
-        .hero-stat p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            margin: 0;
-        }
-
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--box-shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-            transform: scaleX(0);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--box-shadow-lg);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--color-dark);
-        }
-
-        .feature-card p {
-            color: var(--color-text-light);
-            line-height: 1.8;
-        }
-
-        /* Sections Overview */
-        .sections-overview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .section-card {
-            background: white;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .section-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--box-shadow-lg);
-        }
-
-        .section-image {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .section-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .section-card:hover .section-image img {
-            transform: scale(1.1);
-        }
-
-        .section-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .section-content {
-            padding: 35px;
-        }
-
-        .section-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .section-content p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .section-features {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .section-features li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--color-text-light);
-        }
-
-        .section-features i {
-            color: var(--color-success);
-            font-size: 1.1rem;
-        }
-
-        /* Testimonials */
-        .testimonials-section {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom/contain no-repeat;
-            opacity: 0.3;
-        }
-
-        .testimonials-container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .testimonials-track {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .testimonial {
-            min-width: 100%;
-            flex-shrink: 0;
-        }
-
-        .testimonial-card {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .testimonial-text {
-            font-size: 1.4rem;
-            line-height: 1.9;
-            margin-bottom: 30px;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .testimonial-author img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .testimonial-author h4 {
-            color: white;
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        .testimonial-author p {
-            color: rgba(255, 255, 255, 0.8);
-            margin: 5px 0 0;
-            font-size: 0.95rem;
-        }
-
-        .testimonials-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .testimonial-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .testimonial-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            border-radius: var(--border-radius);
-            margin-bottom: 20px;
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .faq-question {
-            padding: 25px 30px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-
-        .faq-question h3 {
-            font-size: 1.2rem;
-            margin: 0;
-            color: var(--color-dark);
-        }
-
-        .faq-icon {
-            width: 30px;
-            height: 30px;
-            background: var(--color-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-
-        .faq-icon i {
-            transition: var(--transition);
-        }
-
-        .faq-item.active .faq-icon {
-            background: var(--color-primary);
-            color: white;
-        }
-
-        .faq-item.active .faq-icon i {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-        }
-
-        .faq-answer p {
-            padding: 0 30px 25px;
-            line-height: 1.8;
-            color: var(--color-text-light);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
-            color: white;
-            text-align: center;
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-content h2 {
-            color: white;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 20px;
-        }
-
-        .cta-content p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            opacity: 0.95;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-buttons .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-    </style>
+    <!-- Main Stylesheet - Imports all CSS -->
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <!-- Skip to main content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content sr-only-focusable">Aller au contenu principal</a>
+
     <!-- Navigation -->
-     
-    <nav class="nav">
+    <nav class="navbar">
         <div class="container">
-            <div class="nav-container">
-                <div class="logo">
-                    <div class="logo-icon">CM</div>
-                    <div class="logo-text">
-                        <h4>Collège Maendeleo</h4>
-                        <span>Le Paradis du Savoir</span>
+            <div class="navbar__container">
+                <!-- Logo -->
+                <a href="index.html" class="navbar__logo">
+                    <div class="navbar__logo-icon">CM</div>
+                    <div class="navbar__logo-text">
+                        <h4 class="navbar__logo-title">Collège Maendeleo</h4>
+                        <span class="navbar__logo-tagline">Le Paradis du Savoir</span>
                     </div>
-                </div>
+                </a>
                 
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="about.html">À Propos</a></li>
-                    <li><a href="sections.html">Sections</a></li>
-                    <li><a href="options.html">Options</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="nav-cta">
-                        <a href="contact.html" class="btn btn-secondary btn-sm">Inscription</a>
+                <!-- Main Menu -->
+                <ul class="navbar__menu">
+                    <li class="navbar__menu-item">
+                        <a href="index.html" class="navbar__menu-link navbar__menu-link--active">Accueil</a>
+                    </li>
+                    <li class="navbar__menu-item">
+                        <a href="about.html" class="navbar__menu-link">À Propos</a>
+                    </li>
+                    <li class="navbar__menu-item">
+                        <a href="sections.html" class="navbar__menu-link">Sections</a>
+                    </li>
+                    <li class="navbar__menu-item">
+                        <a href="options.html" class="navbar__menu-link">Options</a>
+                    </li>
+                    <li class="navbar__menu-item">
+                        <a href="contact.html" class="navbar__menu-link">Contact</a>
+                    </li>
+                    
+                    <!-- Language Switcher -->
+                    <li class="navbar__menu-item navbar__lang-switcher">
+                        <a href="/fr/" class="navbar__lang-btn navbar__lang-btn--active">FR</a>
+                        <a href="/en/" class="navbar__lang-btn">EN</a>
+                    </li>
+                    
+                    <!-- CTA Button -->
+                    <li class="navbar__menu-item navbar__cta">
+                        <a href="contact.html" class="btn btn--secondary btn--sm">
+                            Inscription
+                        </a>
                     </li>
                 </ul>
                 
-                <div class="mobile-toggle" id="mobileToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <!-- Mobile Toggle -->
+                <button class="navbar__toggle" id="navbarToggle" aria-label="Toggle menu">
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                </button>
             </div>
         </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="navbar__overlay"></div>
     </nav>
 
-    <!-- Hero Section -->
-
-
-    <section class="hero" id="accueil">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Collège Maendeleo</h1>
-                <p class="tagline">
-                    <span id="typed-text" class="typing-text" data-text="Le Paradis du Savoir"></span>
-                </p>
-                <p>Excellence éducative de la maternelle au secondaire. Formons ensemble les leaders de demain avec intégrité, innovation et passion.</p>
-                
-                <div class="hero-buttons">
-                    <a href="contact.html" class="btn btn-primary">Inscription 2025-2026</a>
-                    <a href="about.html" class="btn btn-white">Découvrir Notre Histoire</a>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <h3>98%</h3>
-                        <p>Taux de Réussite</p>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Collège Maendeleo</h1>
+                    <p class="hero__subtitle">
+                        <span class="hero__typing" data-text="Le Paradis du Savoir"></span>
+                    </p>
+                    <p class="hero__description">
+                        Excellence éducative de la maternelle au secondaire. Formons ensemble les leaders de demain avec intégrité, innovation et passion.
+                    </p>
+                    
+                    <div class="hero__actions">
+                        <a href="contact.html" class="btn btn--primary btn--lg">
+                            <i class="fas fa-pencil-alt btn__icon--left"></i>
+                            Inscription 2025-2026
+                        </a>
+                        <a href="about.html" class="btn btn--outline-white btn--lg">
+                            <i class="fas fa-arrow-right btn__icon--left"></i>
+                            Découvrir Notre Histoire
+                        </a>
                     </div>
-                    <div class="hero-stat">
-                        <h3>500+</h3>
-                        <p>Élèves Actifs</p>
-                    </div>
-                    <div class="hero-stat">
-                        <h3>12+</h3>
-                        <p>Options Disponibles</p>
-                    </div>
-                    <div class="hero-stat">
-                        <h3>3</h3>
-                        <p>Sections</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="section" id="pourquoi">
-        <div class="container">
-            <div class="section-title">
-                <h2>Pourquoi Choisir Maendeleo?</h2>
-                <p>Une éducation d'excellence qui transforme des vies</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Excellence Académique</h3>
-                    <p>Programmes rigoureux et pédagogie moderne pour garantir la réussite de chaque élève avec un taux de 98% aux examens nationaux.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Encadrement Personnalisé</h3>
-                    <p>Accompagnement individualisé avec des enseignants qualifiés et passionnés pour le développement de chaque élève.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Innovation Technologique</h3>
-                    <p>Équipements modernes et formation aux nouvelles technologies pour préparer nos élèves au monde de demain.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>12+ Options Professionnelles</h3>
-                    <p>Large choix d'options de qualité: scientifique, technique, hôtellerie, agro-vétérinaire, construction et plus.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-futbol"></i>
-                    </div>
-                    <h3>Activités Parascolaires</h3>
-                    <p>Sports, clubs scientifiques, arts, et bien plus pour un développement équilibré de nos élèves.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Valeurs & Discipline</h3>
-                    <p>Formation du caractère basée sur l'intégrité, le respect et l'excellence pour former de bons citoyens.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sections Overview -->
-
-
-    <section class="section section-alt" id="sections">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nos Sections</h2>
-                <p>Un parcours éducatif complet de la maternelle au secondaire</p>
-            </div>
-
-            <div class="sections-overview">
-                <div class="section-card">
-                    <div class="section-image">
-                        <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80" alt="Maternelle">
-                        <span class="section-badge badge-maternelle">Maternelle</span>
-                    </div>
-                    <div class="section-content">
-                        <h3>Section Maternelle</h3>
-                        <p>Éveil et développement holistique à travers le jeu, la découverte et l'apprentissage adapté aux tout-petits.</p>
-                        <ul class="section-features">
-                            <li><i class="fas fa-check-circle"></i> Apprentissage par le jeu</li>
-                            <li><i class="fas fa-check-circle"></i> Développement psychomoteur</li>
-                            <li><i class="fas fa-check-circle"></i> Éveil artistique et créatif</li>
-                        </ul>
-                        <a href="sections.html#maternelle" class="btn btn-outline">En Savoir Plus</a>
-                    </div>
-                </div>
-
-                <div class="section-card">
-                    <div class="section-image">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Primaire">
-                        <span class="section-badge badge-primaire">Primaire</span>
-                    </div>
-                    <div class="section-content">
-                        <h3>Section Primaire</h3>
-                        <p>Fondations solides en français, mathématiques, sciences et développement des compétences essentielles.</p>
-                        <ul class="section-features">
-                            <li><i class="fas fa-check-circle"></i> Programme national renforcé</li>
-                            <li><i class="fas fa-check-circle"></i> Activités parascolaires</li>
-                            <li><i class="fas fa-check-circle"></i> 95% de réussite TENAFEP</li>
-                        </ul>
-                        <a href="sections.html#primaire" class="btn btn-outline">En Savoir Plus</a>
-                    </div>
-                </div>
-
-                <div class="section-card">
-                    <div class="section-image">
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="Secondaire">
-                        <span class="section-badge badge-secondaire">Secondaire</span>
-                    </div>
-                    <div class="section-content">
-                        <h3>Section Secondaire</h3>
-                        <p>Spécialisation et préparation universitaire avec 12+ options professionnelles de qualité.</p>
-                        <ul class="section-features">
-                            <li><i class="fas fa-check-circle"></i> 12+ options disponibles</li>
-                            <li><i class="fas fa-check-circle"></i> Préparation universitaire</li>
-                            <li><i class="fas fa-check-circle"></i> 94% passage à l'université</li>
-                        </ul>
-                        <a href="sections.html#secondaire" class="btn btn-outline">En Savoir Plus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section testimonials-section" id="temoignages">
-        <div class="container testimonials-container">
-            <div class="section-title">
-                <h2 style="color: white;">Ce Qu'on Dit de Nous</h2>
-                <p style="color: rgba(255,255,255,0.9);">Témoignages de notre communauté</p>
-            </div>
-
-            <div class="testimonials-track" id="testimonialsTrack">
-                <div class="testimonial">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Maendeleo a transformé l'avenir de notre fils. L'encadrement personnalisé et la qualité de l'enseignement sont exceptionnels. Nous sommes très fiers de voir ses progrès remarquables."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Parent">
-                            <div>
-                                <h4>Mme. Kasongo Marie</h4>
-                                <p>Parent d'Élève</p>
-                            </div>
+                    <div class="hero__stats">
+                        <div class="hero__stat">
+                            <span class="hero__stat-value">98%</span>
+                            <span class="hero__stat-label">Taux de Réussite</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-value">500+</span>
+                            <span class="hero__stat-label">Élèves Actifs</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-value">12+</span>
+                            <span class="hero__stat-label">Options Disponibles</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-value">3</span>
+                            <span class="hero__stat-label">Sections</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="testimonial">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Grâce à l'option Informatique de Maendeleo, j'ai développé des compétences qui m'ont permis d'intégrer une grande université. Les professeurs sont passionnés et toujours disponibles."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ancien Élève">
-                            <div>
-                                <h4>Jean-Paul Mukendi</h4>
-                                <p>Ancien Élève, Promo 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Notre pédagogie se veut un mélange équitable entre une théorie robuste et une pratique accrue. Former des leaders de demain est notre mission quotidienne."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Professeur">
-                            <div>
-                                <h4>Prof. Aleph Musafiri</h4>
-                                <p>Professeur d'Informatique</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonials-nav">
-                <button class="testimonial-btn" id="prevTestimonial">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="testimonial-btn" id="nextTestimonial">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- FAQ Section -->
-
-
-    <section class="section" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>Questions Fréquentes</h2>
-                <p>Trouvez les réponses à vos questions</p>
             </div>
             
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quels sont les frais de scolarité?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nos frais de scolarité varient selon le niveau et l'option choisie. Nous proposons également des bourses d'études pour les étudiants méritants. Contactez notre service administratif pour obtenir les détails complets et les options de paiement flexible.</p>
-                    </div>
+            <!-- Scroll Indicator -->
+            <div class="hero__scroll-indicator">
+                <div class="hero__scroll-icon">
+                    <div class="hero__scroll-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="section-title__heading">Pourquoi Choisir Maendeleo?</h2>
+                    <p class="section-title__description">Une éducation d'excellence qui transforme des vies</p>
+                    <div class="section-title__divider"></div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quelles sont les options disponibles au secondaire?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                <div class="grid grid--auto-md">
+                    <!-- Feature Card 1 -->
+                    <div class="card">
+                        <div class="card__body text-center">
+                            <div class="card__icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="card__title">Excellence Académique</h3>
+                            <p class="card__text">
+                                Programmes rigoureux et pédagogie moderne pour garantir la réussite de chaque élève avec un taux de 98% aux examens nationaux.
+                            </p>
+                        </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Nous proposons plus de 12 options incluant les filières scientifiques, techniques et professionnelles: Scientifique, Informatique, Agro-Vétérinaire, Hôtellerie-Restauration, Construction, Électricité, Secrétariat-Administration, Commerciale, Pédagogie et bien d'autres.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quelle est la procédure d'inscription?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>L'inscription se fait en plusieurs étapes: dépôt du dossier de candidature, test d'admission, entretien personnel, et finalisation administrative. Notre équipe d'admission guide chaque candidat à travers le processus pour garantir une expérience fluide.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quelles sont les activités parascolaires proposées?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nous proposons une large gamme d'activités parascolaires incluant clubs scientifiques, arts dramatiques, sports (basketball, football, volleyball), robotique, débat, musique et bien d'autres. Ces activités sont conçues pour développer les talents et intérêts divers de nos étudiants.</p>
-                    </div>
-                </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quelle est la taille moyenne des classes?</h3>
-                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    <!-- Feature Card 2 -->
+                    <div class="card">
+                        <div class="card__body text-center">
+                            <div class="card__icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="card__title">Encadrement Personnalisé</h3>
+                            <p class="card__text">
+                                Accompagnement individualisé avec des enseignants qualifiés et passionnés pour le développement de chaque élève.
+                            </p>
+                        </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Nous maintenons des classes de taille réduite avec un ratio enseignant-élève optimal pour garantir un encadrement personnalisé. En moyenne, nos classes comptent 25 à 30 élèves, permettant une attention individuelle à chaque apprenant.</p>
+
+                    <!-- Feature Card 3 -->
+                    <div class="card">
+                        <div class="card__body text-center">
+                            <div class="card__icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3 class="card__title">Innovation Technologique</h3>
+                            <p class="card__text">
+                                Équipements modernes et formation aux nouvelles technologies pour préparer nos élèves au monde de demain.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 4 -->
+                    <div class="card">
+                        <div class="card__body text-center">
+                            <div class="card__icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3 class="card__title">12+ Options Professionnelles</h3>
+                            <p class="card__text">
+                                Large choix d'options de qualité: scientifique, technique, hôtellerie, agro-vétérinaire, construction et plus.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 5 -->
+                    <div class="card">
+                        <div class="card__body text-center">
+                            <div class="card__icon">
+                                <i class="fas fa-futbol"></i>
+                            </div>
+                            <h3 class="card__title">Activités Parascolaires</h3>
+                            <p class="card__text">
+                                Sports, clubs scientifiques, arts, et bien plus pour un développement équilibré de nos élèves.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 6 -->
+                    <div class="card">
+                        <div class="card__body text-center">
+                            <div class="card__icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h3 class="card__title">Valeurs & Discipline</h3>
+                            <p class="card__text">
+                                Formation du caractère basée sur l'intégrité, le respect et l'excellence pour former de bons citoyens.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Prêt à Rejoindre Notre Communauté?</h2>
-                <p>Inscrivez votre enfant dès maintenant pour l'année académique 2025-2026</p>
-                <a href="contact.html" class="btn btn-white btn-lg">Commencer l'Inscription</a>
+        <!-- Sections Overview -->
+        <section class="section section--surface">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="section-title__heading">Nos Sections</h2>
+                    <p class="section-title__description">Un parcours éducatif complet de la maternelle au secondaire</p>
+                    <div class="section-title__divider"></div>
+                </div>
+
+                <div class="grid grid--auto-lg">
+                    <!-- Maternelle -->
+                    <div class="section-card section-card--maternelle">
+                        <div class="card__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Section Maternelle" 
+                                 class="card__image"
+                                 loading="lazy">
+                            <span class="card__badge">Maternelle</span>
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Section Maternelle</h3>
+                            <p class="card__text">
+                                Éveil et développement holistique à travers le jeu, la découverte et l'apprentissage adapté aux tout-petits.
+                            </p>
+                            <ul class="option-card__features mb-lg">
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>Apprentissage par le jeu</span>
+                                </li>
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>Développement psychomoteur</span>
+                                </li>
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>Éveil artistique et créatif</span>
+                                </li>
+                            </ul>
+                            <a href="sections.html#maternelle" class="btn btn--outline-primary btn--full">En Savoir Plus</a>
+                        </div>
+                    </div>
+
+                    <!-- Primaire -->
+                    <div class="section-card section-card--primaire">
+                        <div class="card__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Section Primaire" 
+                                 class="card__image"
+                                 loading="lazy">
+                            <span class="card__badge">Primaire</span>
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Section Primaire</h3>
+                            <p class="card__text">
+                                Fondations solides en français, mathématiques, sciences et développement des compétences essentielles.
+                            </p>
+                            <ul class="option-card__features mb-lg">
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>Programme national renforcé</span>
+                                </li>
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>Activités parascolaires</span>
+                                </li>
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>95% de réussite TENAFEP</span>
+                                </li>
+                            </ul>
+                            <a href="sections.html#primaire" class="btn btn--outline-primary btn--full">En Savoir Plus</a>
+                        </div>
+                    </div>
+
+                    <!-- Secondaire -->
+                    <div class="section-card section-card--secondaire">
+                        <div class="card__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Section Secondaire" 
+                                 class="card__image"
+                                 loading="lazy">
+                            <span class="card__badge">Secondaire</span>
+                        </div>
+                        <div class="card__body">
+                            <h3 class="card__title">Section Secondaire</h3>
+                            <p class="card__text">
+                                Spécialisation et préparation universitaire avec 12+ options professionnelles de qualité.
+                            </p>
+                            <ul class="option-card__features mb-lg">
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>12+ options disponibles</span>
+                                </li>
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>Préparation universitaire</span>
+                                </li>
+                                <li class="option-card__feature">
+                                    <i class="fas fa-check option-card__feature-icon"></i>
+                                    <span>94% passage à l'université</span>
+                                </li>
+                            </ul>
+                            <a href="sections.html#secondaire" class="btn btn--outline-primary btn--full">En Savoir Plus</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="section-title__heading">Questions Fréquentes</h2>
+                    <p class="section-title__description">Trouvez les réponses à vos questions</p>
+                    <div class="section-title__divider"></div>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Quels sont les frais de scolarité?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nos frais de scolarité varient selon le niveau et l'option choisie. Nous proposons également des bourses d'études pour les étudiants méritants. Contactez notre service administratif pour obtenir les détails complets et les options de paiement flexible.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Quelles sont les options disponibles au secondaire?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nous proposons plus de 12 options incluant les filières scientifiques, techniques et professionnelles: Scientifique, Informatique, Agro-Vétérinaire, Hôtellerie-Restauration, Construction, Électricité, Secrétariat-Administration, Commerciale, Pédagogie et bien d'autres.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Quelle est la procédure d'inscription?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>L'inscription se fait en plusieurs étapes: dépôt du dossier de candidature, test d'admission, entretien personnel, et finalisation administrative. Notre équipe d'admission guide chaque candidat à travers le processus pour garantir une expérience fluide.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Quelles sont les activités parascolaires proposées?</h3>
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nous proposons une large gamme d'activités parascolaires incluant clubs scientifiques, arts dramatiques, sports (basketball, football, volleyball), robotique, débat, musique et bien d'autres. Ces activités sont conçues pour développer les talents et intérêts divers de nos étudiants.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section section--gradient">
+            <div class="container text-center">
+                <h2 class="heading-1">Prêt à Rejoindre Notre Communauté?</h2>
+                <p class="text-lead mb-xl">Inscrivez votre enfant dès maintenant pour l'année académique 2025-2026</p>
+                <a href="contact.html" class="btn btn--primary btn--xl">
+                    <i class="fas fa-rocket btn__icon--left"></i>
+                    Commencer l'Inscription
+                </a>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-
-
     <footer class="footer">
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
+            <div class="footer__container">
+                <div class="footer__col">
                     <h4>Collège Maendeleo</h4>
                     <p>Le paradis du savoir, formant les leaders de demain avec excellence et intégrité depuis 2023.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer__col">
                     <h4>Liens Rapides</h4>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
@@ -873,7 +450,7 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer__col">
                     <h4>Options Populaires</h4>
                     <ul>
                         <li><a href="options.html#scientifique">Scientifique</a></li>
@@ -884,24 +461,37 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer__col">
                     <h4>Contact</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Quartier Banday, Durba<br>Ref: Rond-point Banday</p>
-                        <p><i class="fas fa-phone"></i> +243 825 775 108</p>
-                        <p><i class="fas fa-envelope"></i> contact@maendeleo.cd</p>
-                        <p><i class="fas fa-clock"></i> Lun-Ven: 7h30-17h30</p>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item">
+                            <i class="fas fa-map-marker-alt footer__contact-icon"></i>
+                            <span>Quartier Banday, Durba<br>Ref: Rond-point Banday</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-phone footer__contact-icon"></i>
+                            <span>+243 825 775 108</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-envelope footer__contact-icon"></i>
+                            <span>contact@maendeleo.cd</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-clock footer__contact-icon"></i>
+                            <span>Lun-Ven: 7h30-17h30</span>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="copyright">
+            <div class="footer__bottom">
                 <p>&copy; 2025 Collège Maendeleo. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
